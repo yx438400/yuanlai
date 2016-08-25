@@ -1,0 +1,79 @@
+
+一、
+1、首先本机初次安装完成git
+
+2、我在github官网上注册一个账号，email：yuxiang438400@126.com  密码：yx438400
+
+3、打开“git bash” ：运行下面两个命令：
+
+			git config --global user.name  yuxiang438400
+			git config --global user.email yuxiang438400@126.com
+
+
+4、登陆第2步我的账户；点击右上角“+”里面的“New repository”；
+
+5、在git里生成公钥文件，连接github时所需，即在“git bash”命令窗口执行命令：
+	ssh-keygen -t rsa -C "yuxiang438400@126.com" 
+
+
+6、继上面第5步命令生成后，可以在“C:\Users\Administrator\.ssh”文件夹下，找到以“.pub”为后缀的文件，他就是公钥文件。
+	打开“.pub”公钥文件，复制里面所有内容，这个所有内容即是公钥。
+
+7、回到github我的页面，点击“settings”->“Deploy keys”->“Add a deploy key”；
+					在下面的两个填框：“title”可以随意填写、
+							  “Key”栏下填入上述第6步的公钥，最后点击最下面的“Add key”按钮。
+
+8、上面配置完成。
+
+	测试1：可进行测试：如我在桌面右键“git bash”->窗口执行命令“git clone https://github.com/xkeyideal/annotated-redis-2.8.2.git”
+						     ->该命令是git下载一个开源的项目；成功。
+
+	测试2：测试是否能联通GitHub：执行命令“ssh Git@github.com”->结果如下：
+
+					Warning: Permanently added the RSA host key for IP address '192.30.252.122' to the list of known hosts.
+					PTY allocation request failed on channel 0
+					Hi yuxiang438400/yuxiang2! You've successfully authenticated, but GitHub does not provide shell access.
+					Connection to github.com closed.
+					
+					结果这样显示的话，说明配置正确，成功。
+
+
+9、针对公司内部项目的话，只需要将上面第6步中的公钥发送给公司的项目管理员，他会给我的账号开启通道，我就可以拉取公司项目了。
+
+
+************************************************************************************************************************************************************
+
+二、git提交代码：
+
+	1、如我的github上有个仓库yuxiang22地址为：“https://github.com/yuxiang438400/yuxiang22.git”
+
+	2、我在桌面或者任何地方：打开“git  bash”命令窗口，然后“git clone https://github.com/yuxiang438400/yuxiang22.git”；-》这样我的本地电脑上就有了我的远程库“yuxiang22”。
+
+	【不可删除】3、将上面第2步的clone下来的目录下的文件删除，将要上传的文件复制粘贴进去。“.git”目录不可删除。【clone下来的目录文件不可删除，如果需要把我的加进去，则需要一个一个文件的放进去】
+
+	4、执行“git add -A”->添加所有文件及目录、执行“git commit -am ‘随便起个标示名称’”、执行“git push ”
+		可能要输入github用户名和密码：我的分别为“yuxiang438400”和“yx438400”。
+	
+	即可提交成功
+
+************************************************************************************************************************************************************8
+
+如我在公司git账户名“yuxiang438400@126.com”的用户名是“yuxiang438400”，现在家里需要用git往公司项目提交文件，同一个账号“yuxiang438400@126.com”就需要更改一下用户名了
+
+	步骤如下：
+			需要重复上面的第一步过程，并把重新生成的公钥发给管理员。
+
+		【切记：多人协作在：第一次提交：clone下来后不能删除git下来的文件，我需要把我的文件挨个放进项目再依次->“git add -A ”->“git  commit -am 'yu'”->“git  push”
+				    第二次及以后提交：“git bash”->“ git pull”->不能删除git下来的文件，我需要把我的文件挨个放进项目->“git add -A”->“git commit -am 'yu'”->“git push”】
+
+
+
+
+
+
+
+
+
+
+
+				
